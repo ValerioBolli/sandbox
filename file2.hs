@@ -10,3 +10,22 @@ pop = do
     (x:xs) <- get
     put xs
     return x
+
+exec :: Program -> Int
+exec prog = evalState (exec' prog) []
+
+exec' :: Program -> State Stack Int
+exec' [] = pop
+exec' (Push x:cs) = do
+    push x
+    exec' cs
+exec' (Add:cs) = do
+    x <- pop
+    y <- pop
+    push (x + y)
+    exec' cs
+exec' (Mul:cs) = do
+    x <- pop
+    y <- pop
+    push (x * y)
+    exec' cs

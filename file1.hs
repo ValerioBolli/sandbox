@@ -1,5 +1,9 @@
 module A where
 
+
+func01 :: Int -> Int
+func01 x = 3 * x
+
 import Control.Monad.State
 
 data Exp = C Int | Exp :+ Exp | Exp :* Exp deriving Show

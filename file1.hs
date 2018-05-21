@@ -1,3 +1,5 @@
+function10 :: Int -> Int
+
 module A where
 
 

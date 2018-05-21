@@ -1,3 +1,4 @@
+-- this is a comment
 type Stack = [Int]
 
 push :: Int -> State Stack ()
@@ -11,6 +12,7 @@ pop = do
     put xs
     return x
 
+-- this is another comment
 exec :: Program -> Int
 exec prog = evalState (exec' prog) []
 
